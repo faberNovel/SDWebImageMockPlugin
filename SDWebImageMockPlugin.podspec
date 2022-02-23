@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/faberNovel/SDWebImageMockPlugin.git', :tag => "v#{s.version}" }
   s.social_media_url = 'https://twitter.com/fabernovel'
 
-  s.ios.deployment_target = '9.0'
-  s.tvos.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
+  s.tvos.deployment_target = '10.0'
 
   s.source_files = 'Sources/SDWebImageMockPlugin/**/*'
 

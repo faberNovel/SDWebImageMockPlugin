@@ -1,13 +1,15 @@
 use_frameworks!
 
-platform :ios, '9.0'
+platform :ios, '11.0'
 
 target 'SDWebImageMockPlugin_Example' do
   pod 'SDWebImageMockPlugin', :path => '../'
 
+  pod 'SDWebImage', '~> 5.0'
+
   target 'SDWebImageMockPlugin_Tests' do
     inherit! :search_paths
 
-    pod 'FBSnapshotTestCase' , '~> 2.1.4'
+    pod 'SnapshotTesting', '~> 1.9.0'
   end
 end

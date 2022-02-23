@@ -1,33 +1,30 @@
 PODS:
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
   - SDWebImage (5.12.3):
     - SDWebImage/Core (= 5.12.3)
   - SDWebImage/Core (5.12.3)
   - SDWebImageMockPlugin (0.0.1):
     - SDWebImage (~> 5.0)
+  - SnapshotTesting (1.9.0)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase (~> 2.1.4)
+  - SDWebImage (~> 5.0)
   - SDWebImageMockPlugin (from `../`)
+  - SnapshotTesting (~> 1.9.0)
 
 SPEC REPOS:
   trunk:
-    - FBSnapshotTestCase
     - SDWebImage
+    - SnapshotTesting
 
 EXTERNAL SOURCES:
   SDWebImageMockPlugin:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   SDWebImage: 53179a2dba77246efa8a9b85f5c5b21f8f43e38f
-  SDWebImageMockPlugin: dad6ae91e526deaee18a5e282ed4a946cd28f188
+  SDWebImageMockPlugin: e0f2bf7b376fe6695350f43bb23c3840bb3be34f
+  SnapshotTesting: 6141c48b6aa76ead61431ca665c14ab9a066c53b
 
-PODFILE CHECKSUM: f09c7c26d65913b582692f02c1e9d034363f8cc4
+PODFILE CHECKSUM: ee0631ef9bb8f578dc6abf98ac49db293d2cdc30
 
 COCOAPODS: 1.11.2

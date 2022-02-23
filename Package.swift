@@ -5,8 +5,8 @@ import PackageDescription
 let package = Package(
     name: "SDWebImageMockPlugin",
     platforms: [
-        .iOS(.v9),
-        .tvOS(.v9)
+        .iOS(.v10),
+        .tvOS(.v10)
     ],
     products: [
         .library(
@@ -20,7 +20,9 @@ let package = Package(
     targets: [
         .target(
             name: "SDWebImageMockPlugin",
-            dependencies: []
+            dependencies: [
+                "SDWebImage"
+            ]
         )
     ]
 )

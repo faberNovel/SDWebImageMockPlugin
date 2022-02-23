@@ -1,28 +1,29 @@
 import XCTest
+import SnapshotTesting
 import SDWebImageMockPlugin
+@testable import SDWebImageMockPlugin_Example
 
 class Tests: XCTestCase {
-    
+
+    var imageMocker: ImageCacheMocker!
+
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        imageMocker = ImageCacheMocker()
+        imageMocker.setupSDWebImageMocking()
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testViewController() throws {
+        let viewController = SDWebImageMockPlugin_Example.ViewController()
+
+        viewController.configure(with: URL(string: "sample://testImageByName"))
+
+        assertSnapshot(matching: viewController, as: .image(on: .iPhoneX))
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+
+    func testMultipleImagesViewController() throws {
+        let viewController = SDWebImageMockPlugin_Example.MultipleImagesViewController()
+
+        assertSnapshot(matching: viewController, as: .image(on: .iPhoneX))
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure() {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }
