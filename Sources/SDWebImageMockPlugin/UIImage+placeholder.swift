@@ -25,7 +25,7 @@ extension UIImage {
             cgContext.stroke(bounds)
             cgContext.stroke(bounds)
 
-            cgContext.move(to: CGPoint(x: 0, y: 0))
+            cgContext.move(to: .zero)
             cgContext.addLine(to: CGPoint(x: bounds.width, y: bounds.height))
             cgContext.move(to: CGPoint(x: bounds.width, y: 0))
             cgContext.addLine(to: CGPoint(x: 0, y: bounds.height))

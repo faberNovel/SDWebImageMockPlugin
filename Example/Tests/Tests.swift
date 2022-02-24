@@ -3,6 +3,8 @@ import SnapshotTesting
 import SDWebImageMockPlugin
 @testable import SDWebImageMockPlugin_Example
 
+// swiftlint:disable implicitly_unwrapped_optional
+
 class Tests: XCTestCase {
 
     var imageMocker: ImageCacheMocker!
@@ -12,7 +14,7 @@ class Tests: XCTestCase {
         imageMocker = ImageCacheMocker()
         imageMocker.setupSDWebImageMocking()
     }
-    
+
     func testViewController() throws {
         let viewController = SDWebImageMockPlugin_Example.ViewController()
 

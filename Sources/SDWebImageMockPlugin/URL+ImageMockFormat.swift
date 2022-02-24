@@ -7,6 +7,8 @@
 
 import Foundation
 
+// swiftlint:disable force_unwrapping
+
 extension URL {
 
     /// Return an url with the format expected by `ImageResolver.sizeImageProvider`
@@ -25,6 +27,7 @@ extension URL {
     public static func imageMock(named imageName: String, inBundleID bundleID: String) -> URL {
         let bundleIDCharacters = CharacterSet(charactersIn: bundleID)
         assert(bundleIDCharacters.isSubset(of: CharacterSet.urlHostAllowed), "Invalid characters in bundleID")
-        return URL(string: "bundle://\(bundleID)/\(imageName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)")!
+        let imageName = imageName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        return URL(string: "bundle://\(bundleID)/\(imageName)")!
     }
 }
