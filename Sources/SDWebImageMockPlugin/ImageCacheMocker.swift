@@ -9,13 +9,46 @@ import Foundation
 import UIKit
 import SDWebImage
 
-public class ImageCacheMocker: NSObject, SDImageCacheProtocol {
+/// This cache make possible to mock images requested by SDWebImage.
+///
+/// When installed it will returns an image for any url given. This preventing any network request.
+public class ImageCacheMocker: NSObject {
 
-    static let sampleImage = placeholderImage(size: CGSize(width: 500, height: 500))
-    static let sampleImageData = sampleImage.sd_imageData(as: .PNG)!
+    private var imageResolver = ImageResolver()
+
+    private static let sampleImage = UIImage.placeholder(with: CGSize(width: 500, height: 500))
+    private static let sampleImageData = sampleImage.pngData()!
 
     // MARK: - ImageCacheMocker
 
+    /// Initialize the cache with image providers
+    ///
+    /// The default providers installed are:
+    /// - `.sizeImageProvider`: It returns an image of the specified size in the url
+    ///     "size://<width>x<height>"
+    /// - `.ratioImageProvider`: It returns an image with an height of 500pt and the specified
+    ///     ratio in the url "ratio://<widthFactor>:<heightFactor>"
+    /// - `.bundleImageProvider(bundlesWithIdentifiers: ["main": Bundle.main])`: It returns an image
+    ///     from the bundle with the name specified in the url url "bundle://<bundleID>/<imageName>".
+    ///     By default only images present in the main bundle are accessible, you need to provide a
+    ///     custom image provider if you want to access other bundles
+    public init(imageProviders: [ImageProvider] = .defaultProviders) {
+        super.init()
+        imageProviders.forEach {
+            imageResolver.registerProvider($0)
+        }
+    }
+
+    /// Register a new image provider.
+    ///
+    /// If the provider have the same scheme as a provider already registered, then it will replace it.
+    public func registerProvider(_ provider: ImageProvider) {
+        imageResolver.registerProvider(provider)
+    }
+
+    /// Install itself as the cache of every image requested by SDWebImage.
+    ///
+    /// Once installed no web request will be done by SDWebImage as this cache always returns an image.
     public func setupSDWebImageMocking() {
         SDWebImageManager.shared.optionsProcessor = SDWebImageOptionsProcessor() { url, options, context in
             var mutableOptions = options
@@ -25,6 +58,26 @@ public class ImageCacheMocker: NSObject, SDImageCacheProtocol {
             return SDWebImageOptionsResult(options: mutableOptions, context: mutableContext)
         }
     }
+
+    // MARK: - Private
+
+    private func handleImageRequest(
+        forKey key: String?,
+        completion completionBlock: SDImageCacheQueryCompletionBlock? = nil
+    ) {
+        guard
+            let stringURL = key,
+            let url = URL(string: stringURL)
+        else {
+            completionBlock?(Self.sampleImage, Self.sampleImageData, .memory)
+            return
+        }
+        let image = imageResolver.image(for: url)
+        completionBlock?(image, image.pngData(), .memory)
+    }
+}
+
+extension ImageCacheMocker: SDImageCacheProtocol {
 
     // MARK: - SDImageCacheProtocol
 
@@ -78,46 +131,7 @@ public class ImageCacheMocker: NSObject, SDImageCacheProtocol {
     public func clear(
         with cacheType: SDImageCacheType,
         completion completionBlock: SDWebImageNoParamsBlock? = nil
-    ) {}
-
-    // MARK: - Private
-
-    private func handleImageRequest(
-        forKey key: String?,
-        completion completionBlock: SDImageCacheQueryCompletionBlock? = nil
     ) {
-        if #available(iOS 13.0, *) {
-            guard
-                let stringURL = key,
-                let url = URL(string: stringURL),
-                url.scheme == "sample",
-                let imageName = url.host,
-                let image = UIImage(named: imageName, in: Bundle(for: ImageCacheMocker.self), with: nil)
-            else {
-                completionBlock?(Self.sampleImage, Self.sampleImageData, .memory)
-                return
-            }
-            completionBlock?(image, image.sd_imageData(as: .PNG), .memory)
-        } else {
-            completionBlock?(Self.sampleImage, Self.sampleImageData, .memory)
-        }
-    }
-
-    private static func placeholderImage(size: CGSize = CGSize(width: 100, height: 100)) -> UIImage {
-        let renderer = UIGraphicsImageRenderer(size: size)
-        return renderer.image { context in
-            UIColor.gray.setFill()
-            context.fill(renderer.format.bounds)
-            UIColor.lightGray.setStroke()
-            context.stroke(renderer.format.bounds)
-
-            let bounds = renderer.format.bounds
-            let cgContext = context.cgContext
-            cgContext.move(to: CGPoint(x: 0, y: 0))
-            cgContext.addLine(to: CGPoint(x: bounds.width, y: bounds.height))
-            cgContext.move(to: CGPoint(x: bounds.width, y: 0))
-            cgContext.addLine(to: CGPoint(x: 0, y: bounds.height))
-            cgContext.strokePath()
-        }
+        completionBlock?()
     }
 }
