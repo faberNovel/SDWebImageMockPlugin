@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 import SDWebImage
 
+// swiftlint:disable discouraged_optional_collection
+
 /// This cache make possible to mock images requested by SDWebImage.
 ///
 /// When installed it will returns an image for any url given. This preventing any network request.
@@ -17,7 +19,7 @@ public class ImageCacheMocker: NSObject {
     private var imageResolver = ImageResolver()
 
     private static let sampleImage = UIImage.placeholder(with: CGSize(width: 500, height: 500))
-    private static let sampleImageData = sampleImage.pngData()!
+    private static let sampleImageData = sampleImage.pngData()
 
     // MARK: - ImageCacheMocker
 
@@ -50,10 +52,10 @@ public class ImageCacheMocker: NSObject {
     ///
     /// Once installed no web request will be done by SDWebImage as this cache always returns an image.
     public func setupSDWebImageMocking() {
-        SDWebImageManager.shared.optionsProcessor = SDWebImageOptionsProcessor() { url, options, context in
+        SDWebImageManager.shared.optionsProcessor = SDWebImageOptionsProcessor { _, options, context in
             var mutableOptions = options
             mutableOptions.insert(.fromCacheOnly)
-            var mutableContext: [SDWebImageContextOption : Any] = context ?? [:]
+            var mutableContext: [SDWebImageContextOption: Any] = context ?? [:]
             mutableContext[.imageCache] = self
             return SDWebImageOptionsResult(options: mutableOptions, context: mutableContext)
         }
@@ -84,7 +86,7 @@ extension ImageCacheMocker: SDImageCacheProtocol {
     public func queryImage(
         forKey key: String?,
         options: SDWebImageOptions = [],
-        context: [SDWebImageContextOption : Any]?,
+        context: [SDWebImageContextOption: Any]?,
         completion completionBlock: SDImageCacheQueryCompletionBlock? = nil
     ) -> SDWebImageOperation? {
         handleImageRequest(forKey: key, completion: completionBlock)
@@ -94,7 +96,7 @@ extension ImageCacheMocker: SDImageCacheProtocol {
     public func queryImage(
         forKey key: String?,
         options: SDWebImageOptions = [],
-        context: [SDWebImageContextOption : Any]?,
+        context: [SDWebImageContextOption: Any]?,
         cacheType: SDImageCacheType,
         completion completionBlock: SDImageCacheQueryCompletionBlock? = nil
     ) -> SDWebImageOperation? {

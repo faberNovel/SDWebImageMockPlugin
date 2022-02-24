@@ -8,7 +8,7 @@
 import Foundation
 
 @resultBuilder
-public struct ListResultBuilder<Element> {
+public enum ListResultBuilder<Element> {
 
     public static func buildBlock(_ components: [Element]...) -> [Element] {
         return components.flatMap { $0 }
@@ -18,6 +18,7 @@ public struct ListResultBuilder<Element> {
         return [expression]
     }
 
+    // swiftlint:disable:next discouraged_optional_collection
     public static func buildOptional(_ component: [Element]?) -> [Element] {
         return component ?? []
     }
