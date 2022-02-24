@@ -6,12 +6,23 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MultipleImagesViewController: UIViewController {
+
+    private var imageViews: [UIImageView] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+    }
+
+    func configure(with urlsAndContentMode: [(URL?, UIView.ContentMode)]) {
+        zip(imageViews, urlsAndContentMode).forEach { imageView, urlAndContentMode in
+            let (url, contentMode) = urlAndContentMode
+            imageView.contentMode = contentMode
+            imageView.sd_setImage(with: url)
+        }
     }
 
     // MARK: - Private
@@ -41,7 +52,9 @@ class MultipleImagesViewController: UIViewController {
 
     private func configuredImage() -> UIImageView {
         let imageView = UIImageView()
+        imageView.clipsToBounds = true
         imageView.sd_setImage(with: URL(string: "http://127.0.0.1/"))
+        imageViews.append(imageView)
         return imageView
     }
 }

@@ -18,6 +18,7 @@
 		AC267D4C27C6A4E600C4182A /* ListResultBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC267D4A27C6A4E500C4182A /* ListResultBuilder.swift */; };
 		AC267D4D27C6A4E600C4182A /* UIStackView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC267D4B27C6A4E500C4182A /* UIStackView+Utils.swift */; };
 		AC267D4F27C6A51700C4182A /* MultipleImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC267D4E27C6A51700C4182A /* MultipleImagesViewController.swift */; };
+		AC267D5627C7907F00C4182A /* Tests.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC267D5527C7907F00C4182A /* Tests.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		AC267D4B27C6A4E500C4182A /* UIStackView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Utils.swift"; sourceTree = "<group>"; };
 		AC267D4E27C6A51700C4182A /* MultipleImagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleImagesViewController.swift; sourceTree = "<group>"; };
 		AC267D5027C6A81600C4182A /* __Snapshots__ */ = {isa = PBXFileReference; lastKnownFileType = folder; path = __Snapshots__; sourceTree = "<group>"; };
+		AC267D5527C7907F00C4182A /* Tests.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tests.xcassets; sourceTree = "<group>"; };
 		CBED2FE9561EB620546015C6 /* Pods-SDWebImageMockPlugin_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageMockPlugin_Tests.release.xcconfig"; path = "Target Support Files/Pods-SDWebImageMockPlugin_Tests/Pods-SDWebImageMockPlugin_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D272812A0A8355E61C423CA9 /* Pods-SDWebImageMockPlugin_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageMockPlugin_Example.debug.xcconfig"; path = "Target Support Files/Pods-SDWebImageMockPlugin_Example/Pods-SDWebImageMockPlugin_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		DF910F7207703E184A73D502 /* SDWebImageMockPlugin.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SDWebImageMockPlugin.podspec; path = ../SDWebImageMockPlugin.podspec; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACEA1AFB9204008FA782 /* Info.plist */,
+				AC267D5527C7907F00C4182A /* Tests.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC267D5627C7907F00C4182A /* Tests.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
