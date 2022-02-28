@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SDWebImageMockPlugin'
-  s.version          = '0.0.1'
+  s.version          = '0.1.0'
   s.summary          = 'A plugin to provide mock images to SDWebImage, this allowing snapshot testing'
   s.homepage         = 'https://github.com/faberNovel/SDWebImageMockPlugin'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
