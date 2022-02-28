@@ -26,6 +26,7 @@ Package.resolved
 
 # Bundler
 .bundle
+vendor/
 
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
 # Carthage/Checkouts
@@ -40,3 +41,12 @@ Carthage/Build
 # `pod install` in .travis.yml
 
 Pods/
+
+# CI script generated files
+
+tests_derived_data/
+
+# Fastlane generated files
+fastlane/README.md
+fastlane/report.xml
+fastlane/test_output
