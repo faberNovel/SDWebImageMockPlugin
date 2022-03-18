@@ -26,7 +26,7 @@ extension ImageProvider {
             isValidSize(width: dimensions[0], height: dimensions[1])
         else { fatalError("Invalid url format") }
 
-        return UIImage.placeholder(width: dimensions[1], height: dimensions[0])
+        return UIImage.placeholder(width: dimensions[0], height: dimensions[1])
     }
 
     public static var ratioImageProvider = ImageProvider(scheme: "ratio") { url in
