@@ -316,6 +316,7 @@ GEM
     zeitwerk (2.5.4)
 
 PLATFORMS
+  -darwin-21
   x86_64-darwin-18
   x86_64-darwin-19
 
@@ -330,4 +331,4 @@ RUBY VERSION
    ruby 2.6.5p114
 
 BUNDLED WITH
-   2.2.5
+   2.3.16

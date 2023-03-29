@@ -1,7 +1,7 @@
 PODS:
-  - SDWebImage (5.12.3):
-    - SDWebImage/Core (= 5.12.3)
-  - SDWebImage/Core (5.12.3)
+  - SDWebImage (5.15.5):
+    - SDWebImage/Core (= 5.15.5)
+  - SDWebImage/Core (5.15.5)
   - SDWebImageMockPlugin (0.1.0):
     - SDWebImage (~> 5.0)
   - SnapshotTesting (1.9.0)
@@ -24,8 +24,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SDWebImage: 53179a2dba77246efa8a9b85f5c5b21f8f43e38f
-  SDWebImageMockPlugin: aca9de86498440eb7aa3c7dbc1b8e2061f6c370a
+  SDWebImage: fd7e1a22f00303e058058278639bf6196ee431fe
+  SDWebImageMockPlugin: 2cddc58639ba10dd907bf194f1b705d7308dcc2d
   SnapshotTesting: 6141c48b6aa76ead61431ca665c14ab9a066c53b
   SwiftLint: ae76d82f056734f853c8cd0371503252c606c482
 
