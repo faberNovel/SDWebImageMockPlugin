@@ -4,7 +4,7 @@ PODS:
   - SDWebImage/Core (5.15.5)
   - SDWebImageMockPlugin (0.1.0):
     - SDWebImage (~> 5.0)
-  - SDWebImageSwiftUI (2.1.0):
+  - SDWebImageSwiftUI (2.2.2):
     - SDWebImage (~> 5.10)
   - SnapshotTesting (1.9.0)
   - SwiftLint (0.46.3)
@@ -12,7 +12,7 @@ PODS:
 DEPENDENCIES:
   - SDWebImage (~> 5.0)
   - SDWebImageMockPlugin (from `../`)
-  - SDWebImageSwiftUI (~> 2.1.0)
+  - SDWebImageSwiftUI (~> 2.2)
   - SnapshotTesting (~> 1.9.0)
   - SwiftLint (~> 0.46.0)
 
@@ -30,10 +30,10 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   SDWebImage: fd7e1a22f00303e058058278639bf6196ee431fe
   SDWebImageMockPlugin: 2cddc58639ba10dd907bf194f1b705d7308dcc2d
-  SDWebImageSwiftUI: 76c824afd24d896710e47f240755a31b80e056a0
+  SDWebImageSwiftUI: 54ded4115b4ac6cd60b78f61415f86d070892d98
   SnapshotTesting: 6141c48b6aa76ead61431ca665c14ab9a066c53b
   SwiftLint: ae76d82f056734f853c8cd0371503252c606c482
 
-PODFILE CHECKSUM: e95d1bc7f398bb7eef605f4fca7290652afd87e2
+PODFILE CHECKSUM: 1e6157af0c89078d7d3dea24d4765a6d5caa6ac1
 
 COCOAPODS: 1.11.2
