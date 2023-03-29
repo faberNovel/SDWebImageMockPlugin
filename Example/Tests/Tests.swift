@@ -48,4 +48,26 @@ class Tests: XCTestCase {
 
         assertSnapshot(matching: viewController, as: .image(on: .iPhoneX))
     }
+
+    func testMultipleSwiftUIImagesViewController() throws {
+        let viewController = SDWebImageMockPlugin_Example.SwiftUIHostingViewController()
+
+        assertSnapshot(matching: viewController, as: .image(on: .iPhoneX))
+    }
+
+    func testConfiguredMultipleSwiftUIImagesViewController() throws {
+        let viewController = SDWebImageMockPlugin_Example.SwiftUIHostingViewController()
+
+        viewController.viewModel.configure(with: [
+            (.imageMock(forWidth: 500, height: 100), .fit),
+            (.imageMock(forWidth: 50, height: 200), .fill),
+            (.imageMock(withRatio: Double(16) / Double(9)), .fit),
+            (.imageMock(withRatio: Double(3) / Double(2)), .fit),
+            (.imageMock(named: "sampleImage1", inBundleID: "testBundle"), .fit),
+            (.imageMock(named: "sampleImage2", inBundleID: "testBundle"), .fit),
+            (URL(string: "http://127.0.0.1"), nil)
+        ])
+
+        assertSnapshot(matching: viewController, as: .image(on: .iPhoneX))
+    }
 }

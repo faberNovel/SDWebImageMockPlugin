@@ -19,6 +19,8 @@
 		AC267D4D27C6A4E600C4182A /* UIStackView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC267D4B27C6A4E500C4182A /* UIStackView+Utils.swift */; };
 		AC267D4F27C6A51700C4182A /* MultipleImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC267D4E27C6A51700C4182A /* MultipleImagesViewController.swift */; };
 		AC267D5627C7907F00C4182A /* Tests.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC267D5527C7907F00C4182A /* Tests.xcassets */; };
+		ACA4589F29D42F67009BB575 /* SwiftUIHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA4589E29D42F67009BB575 /* SwiftUIHostingViewController.swift */; };
+		ACA458A129D430A7009BB575 /* ImageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA458A029D430A7009BB575 /* ImageListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		AC267D4E27C6A51700C4182A /* MultipleImagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleImagesViewController.swift; sourceTree = "<group>"; };
 		AC267D5027C6A81600C4182A /* __Snapshots__ */ = {isa = PBXFileReference; lastKnownFileType = folder; path = __Snapshots__; sourceTree = "<group>"; };
 		AC267D5527C7907F00C4182A /* Tests.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tests.xcassets; sourceTree = "<group>"; };
+		ACA4589E29D42F67009BB575 /* SwiftUIHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIHostingViewController.swift; sourceTree = "<group>"; };
+		ACA458A029D430A7009BB575 /* ImageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListView.swift; sourceTree = "<group>"; };
 		CBED2FE9561EB620546015C6 /* Pods-SDWebImageMockPlugin_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageMockPlugin_Tests.release.xcconfig"; path = "Target Support Files/Pods-SDWebImageMockPlugin_Tests/Pods-SDWebImageMockPlugin_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D272812A0A8355E61C423CA9 /* Pods-SDWebImageMockPlugin_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageMockPlugin_Example.debug.xcconfig"; path = "Target Support Files/Pods-SDWebImageMockPlugin_Example/Pods-SDWebImageMockPlugin_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		DF910F7207703E184A73D502 /* SDWebImageMockPlugin.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SDWebImageMockPlugin.podspec; path = ../SDWebImageMockPlugin.podspec; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				AC267D4E27C6A51700C4182A /* MultipleImagesViewController.swift */,
+				ACA4589E29D42F67009BB575 /* SwiftUIHostingViewController.swift */,
+				ACA458A029D430A7009BB575 /* ImageListView.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -296,11 +302,13 @@
 				"${PODS_ROOT}/Target Support Files/Pods-SDWebImageMockPlugin_Example/Pods-SDWebImageMockPlugin_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImageMockPlugin/SDWebImageMockPlugin.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImageSwiftUI/SDWebImageSwiftUI.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImageMockPlugin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImageSwiftUI.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -397,8 +405,10 @@
 				AC267D4C27C6A4E600C4182A /* ListResultBuilder.swift in Sources */,
 				AC267D4D27C6A4E600C4182A /* UIStackView+Utils.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				ACA458A129D430A7009BB575 /* ImageListView.swift in Sources */,
 				AC267D4F27C6A51700C4182A /* MultipleImagesViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				ACA4589F29D42F67009BB575 /* SwiftUIHostingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
