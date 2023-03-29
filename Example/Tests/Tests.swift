@@ -52,6 +52,7 @@ class Tests: XCTestCase {
     func testMultipleSwiftUIImagesViewController() throws {
         let viewController = SDWebImageMockPlugin_Example.SwiftUIHostingViewController()
 
+        prepareViewControllerForSDWebImageSwiftUIAppearanceHack(viewController)
         assertSnapshot(matching: viewController, as: .image(on: .iPhoneX))
     }
 
@@ -68,6 +69,23 @@ class Tests: XCTestCase {
             (URL(string: "http://127.0.0.1"), nil)
         ])
 
+        prepareViewControllerForSDWebImageSwiftUIAppearanceHack(viewController)
         assertSnapshot(matching: viewController, as: .image(on: .iPhoneX))
+    }
+}
+
+extension XCTestCase {
+    // SDWebImageSwiftUI is using a hack to bypass strange behavior in SwiftUI with `onAppear` and `onDisappear`.
+    // The hack uses UIKit to have more reliable appearance management, to have the image loaded instantly
+    // we need to add the WebImage to a window and wait for an async closure on main thread to complete.
+    func prepareViewControllerForSDWebImageSwiftUIAppearanceHack(_ viewController: UIViewController) {
+        let fakeWindow = UIWindow()
+        fakeWindow.rootViewController = viewController
+        fakeWindow.isHidden = false
+        let expectation = XCTestExpectation()
+        DispatchQueue.main.async {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1.0)
     }
 }
